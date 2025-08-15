@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="style.css" />
+        <link rel="shortcut icon" href="https://github.githubassets.com/favicons/favicon-dark.png" type="image/x-icon">
+        <title>The Decisionator</title>
+    </head>
+    <body>
+        <header>
+            <a href="https://github.com/devanshtangri" target="_blank">github.com/devanshtangri&nbsp;<img src="github-mark-white.svg"/></a>
+        </header>
+        <main>
+            <div id="description">
+                <h1>The Decisionator</h1>
+                <p>
+                    Stuck between two choices and tired of flipping an actual coin? This brilliantly unreliable yet strangely charming creation is here to make the call for you.<br><br>
+                    Simply type your burning question, pick how fast you want destiny to answer, and let the "The Decisionator" deliver your fate with style, and drama.
+                </p>
+            </div>
+            <div id="promptBar">
+                <p id="modalVerb">Should I</p>
+                <div id="promptAlert"><p>I can’t decide if you don't tell me what's up!</p></div>
+                <input type="text" name="userPrompt" id="userPrompt" autocomplete="off" />
+                <button id="startProcess">Decide!</button>
+            </div>
+            <div id="speedSelector">
+                <div id="highlight"></div>
+                <div>
+                    <div class="mode selected" value="6" id="Fast">
+                        Fast Mode
+                        <p class="context">For when you're decisive about being indecisive</p>
+                    </div>
+                </div>
+                <div>
+                    <div class="mode" value="8" id="Slow">
+                        Slow Mode
+                        <p class="context">For when you want your fate revealed with a little dramatic pause</p>
+                    </div>
+                </div>
+                <div>
+                    <div class="mode" value="10" id="Snail">
+                        Snail Mode
+                        <p class="context">For when you want to question your life choices and my programming speed</p>
+                    </div>
+                </div>
+            </div>
+            <div id="process">
+                <div id="progressDisplay">
+                    <div id="positiveProgress"></div>
+                    <div id="negativeProgress"></div>
+                </div>
+                <div id="resultBox"><button id="refresh">Ask Another Question</button></div>
+            </div>
+        </main>
+        <script src="animations.js"></script>
+        <script src="logic.js"></script>
+    </body>
+</html>
