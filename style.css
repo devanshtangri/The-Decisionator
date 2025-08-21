@@ -283,25 +283,9 @@ main {
         color: white;
     }
 }
-@media (max-width: 100rem) {
+@media (max-width: 768px) {
     html {
-        font-size: 12px;
-    }
-}
-@media (max-width: 50rem) {
-    html {
-        font-size: 9px;
-    }
-    #promptBar {
-        height: 5rem;
-    }
-    #speedSelector {
-        height: 5rem;
-    }
-}
-@media (max-width: 25rem) {
-    html {
-        font-size: 8px;
+        font-size: 2.1dvw;
     }
     #promptBar {
         height: 5rem;
