@@ -8,7 +8,7 @@
 body {
     background-color: rgb(1, 22, 39);
     height: max(100dvh, 50rem);
-    width: 100dvw;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
