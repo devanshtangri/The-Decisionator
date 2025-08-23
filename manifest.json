@@ -4,7 +4,7 @@
   "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#ffffff",
-  "theme_color": "#317EFB",
+  "theme_color": "rgb(1, 22, 39)",
   "icons": [
     {
       "src": "pwaIcon.png",
