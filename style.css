@@ -7,7 +7,7 @@
 }
 body {
     background-color: rgb(1, 22, 39);
-    height: max(100dvh, 50rem);
+    height: max(100dvh, 26rem);
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -45,7 +45,8 @@ header {
     }
 }
 main {
-    height: 100%;
+    margin: auto 0;
+    height: auto;
     width: 45rem;
     display: flex;
     flex-direction: column;
