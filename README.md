@@ -1,14 +1,39 @@
 # The Decisionator
-The Decisionator is a playful static website that helps you make choices when you’re feeling indecisive — or just want to let fate (and a little humor) decide.
 
-Enter any “Should I…” question, choose a speed mode (from fast and snappy to slow and dramatic), and get a yes/no answer paired with a witty, personality-driven response. Comes loaded with fun example prompts and a variety of lighthearted outcomes so every decision feels fresh.
+👉 Try it here
 
-Perfect for:
+The Decisionator is a playful static website that helps you make choices when you’re indecisive — or just want to let fate (and a little humor) decide.
 
-Breaking the tie when you can’t decide
+Ask it a question starting with:
 
-Adding a little randomness to your day
+Should I … ?
 
-Getting roasted (or encouraged) by your own website
+Could I … ?
 
-Built with simple HTML, CSS, and JavaScript — no frameworks, no fuss, just decisions.
+Will I … ?
+
+…and you’ll get a randomized Yes/No response paired with witty, personality-driven feedback.
+
+✨ Features
+
+Works with Should I / Could I / Will I questions.
+
+Responses range from supportive encouragement to dramatic “absolutely not.”
+
+Adjustable “speed modes” (from fast and snappy to slow and suspenseful).
+
+Simple, lightweight build — just HTML, CSS, and JavaScript.
+
+Fresh outcomes every time thanks to a wide pool of responses.
+
+🎯 Perfect for
+
+Breaking a tie when you can’t decide.
+
+Adding some randomness to your day.
+
+Getting roasted (or encouraged) by your own website.
+
+⚡ Tech
+
+Pure HTML, CSS, JS — no frameworks, no dependencies, just fun.
