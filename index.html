@@ -22,8 +22,12 @@
                 </p>
             </div>
             <div id="promptBar">
-                <p id="modalVerb">Should I</p>
-                <div id="promptAlert"><p>I can’t decide if you don't tell me what's up!</p></div>
+                <select id="modalVerb">
+                    <option value="Should I">Should I</option>
+                    <option value="Could I">Could I</option>
+                    <option value="Will I">Will I</option>
+                </select>
+                <div id="promptAlert"><p>I can't decide if you don't tell me what's up!</p></div>
                 <input type="text" name="userPrompt" id="userPrompt" autocomplete="off" />
                 <button id="startProcess">Decide!</button>
             </div>

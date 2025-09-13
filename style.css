@@ -82,6 +82,7 @@ main {
         border-radius: 1rem 0 0 1rem;
         background-color: rgb(8, 41, 60);
         color: white;
+        text-align: center;
         font-weight: 700;
         width: 15%;
         height: 100%;
