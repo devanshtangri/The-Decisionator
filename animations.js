@@ -1,5 +1,5 @@
 let disabled = false, barClicked = false, speed = 6;
-
+let modalVerb = document.querySelector("#modalVerb");
 
 // Set Cookie //
 function setCookie (name, value) {
@@ -123,7 +123,7 @@ function moveHighlight (target) {
 if (getCookie("selectedSpeed") !== null) moveHighlight(document.querySelector(`#${getCookie("selectedSpeed")}`));
 else moveHighlight(document.querySelector(`#Fast`));
 
-if (getCookie("modalVerb") !== null) document.querySelector("#modalVerb").value = getCookie("modalVerb");
+if (getCookie("modalVerb") !== null) modalVerb.value = getCookie("modalVerb");
 
 document.querySelectorAll(".mode").forEach(mode => {
     mode.addEventListener("click", () => moveHighlight(mode));
@@ -160,7 +160,7 @@ function startProcess (e) {
 
         speed = document.querySelector(".selected").getAttribute("value");
         setCookie("selectedSpeed", document.querySelector(".selected").getAttribute("id"));
-        setCookie("modalVerb", document.querySelector("#modalVerb").value);
+        setCookie("modalVerb", modalVerb.value);
 
         const progressBox1 = document.createElement("div");
         progressBox1.className = "progressBoxes";
@@ -181,7 +181,7 @@ function startProcess (e) {
 
 
 // Handle win event and display message //
-const positiveResponses = [
+const responses = [[
     "Yes, and I think you should lean into it with absolutely no hesitation.",
     "Definitely yes — this has all the makings of a great story later.",
     "Yes, and I'm confident you'll handle whatever follows with style.",
@@ -202,9 +202,7 @@ const positiveResponses = [
     "Absolutely — fortune clearly favors you today.",
     "Yes, and I'd recommend going all in on it.",
     "Definitely yes — you've got this in the bag."
-];
-
-const negativeResponses = [
+], [
     "No, and I think you'll thank yourself later for holding back.",
     "Not this time — it's one of those ideas best left on the shelf.",
     "No, because even a little patience might make the outcome way better.",
@@ -225,16 +223,100 @@ const negativeResponses = [
     "Not now — patience will pay off later.",
     "No, but you can still dream about it.",
     "Let's pass — there's a better idea waiting around the corner."
-];
+], [
+    "Yes, you absolutely could — the potential is right there for you.",
+    "Definitely yes — the possibilities are wide open.",
+    "Yes, and I think you'd surprise yourself with how well it turns out.",
+    "For sure — nothing's stopping you but hesitation.",
+    "Absolutely — the opportunity is well within your reach.",
+    "Yes, and I'd say you're more capable than you realize.",
+    "Without a doubt — you could, and it might even be fun.",
+    "Yes, and honestly, why wouldn't you?",
+    "Totally — you've got the tools to pull it off.",
+    "Yes, and I think the odds are tilted in your favor.",
+    "Definitely — you could, and I bet it'll feel easier than you expect.",
+    "Yes, and I can already see you making it work.",
+    "Absolutely — the door is open for you.",
+    "Yes, and I think this could be the start of something bigger.",
+    "For sure — the answer is sitting right in your hands.",
+    "Yes, and you might even enjoy proving yourself right.",
+    "Definitely yes — your capability is not in question.",
+    "Yes, and you might look back and laugh at how simple it was.",
+    "Absolutely — you could, and you probably should try.",
+    "Yes, and I think you'll be glad you gave it a shot."
+], [
+    "Not this time — technically possible, but not worth the effort.",
+    "No, and honestly, it'd take way too much out of you.",
+    "Probably not — at least not without making life harder than it needs to be.",
+    "No, because the timing's off for pulling this off well.",
+    "Not today — the odds just aren't in your corner.",
+    "No, and even if you could, should you really?",
+    "Let's say no — this one would be more stress than reward.",
+    "Not now — you'd just be forcing it.",
+    "No, and you'd thank yourself later for passing on it.",
+    "Probably not — the universe seems to have other plans.",
+    "No, and it would be a bigger hassle than you're imagining.",
+    "Not this time — the energy just isn't there.",
+    "No, and that's a solid call for your peace of mind.",
+    "Let's pass — the cost would outweigh the payoff.",
+    "No, and honestly, I think you already know why.",
+    "Not right now — the conditions just don't line up.",
+    "Probably not — it would take way more than you're prepared for.",
+    "No, and that's actually a smart move.",
+    "Not today — you could try, but it wouldn't stick.",
+    "Let's skip it — this isn't the hill to climb."
+], [
+    "Yes, and I can already see it happening.",
+    "Absolutely — the future is leaning your way.",
+    "Definitely yes — it's practically written in stone.",
+    "Yes, and sooner than you think.",
+    "Without a doubt — destiny seems to agree with you.",
+    "Yes, and I bet it'll feel like everything lined up perfectly.",
+    "Absolutely — the path is clearing just for you.",
+    "Yes, and it's going to be better than you imagine.",
+    "Definitely yes — this one's already set in motion.",
+    "Yes, and the momentum is all on your side.",
+    "For sure — this is one of those inevitabilities.",
+    "Yes, and when it happens, you'll wonder why you ever doubted it.",
+    "Absolutely — the signs are pointing directly at yes.",
+    "Yes, and the timing will feel just right.",
+    "Definitely yes — the future looks bright.",
+    "Yes, and you'll probably smile when it all clicks together.",
+    "Absolutely — you're on track and unstoppable.",
+    "Yes, and honestly, it was always going to go this way.",
+    "Without question — this outcome is yours.",
+    "Yes, and you'll be glad you waited for it."
+], [
+    "Not this time — the future has other plans.",
+    "No, and that's actually a blessing in disguise.",
+    "Probably not — at least not the way you're picturing it.",
+    "No, because the timing just doesn't sync up.",
+    "Not today — the outcome isn't lining up for you.",
+    "No, and I think that's the universe's polite way of saying ‘try again later.'",
+    "Let's say no — it's not in the cards right now.",
+    "Not now — the road isn't leading there just yet.",
+    "No, and honestly, that might be for the best.",
+    "Probably not — the momentum is heading elsewhere.",
+    "No, and I think you'll understand why soon enough.",
+    "Not this time — the signs are pointing away from it.",
+    "No, because something better is around the corner.",
+    "Let's pass on this — it doesn't look set to happen.",
+    "No, and you might end up grateful for that.",
+    "Not yet — the future is still undecided, but leaning no.",
+    "No, and forcing it would only make things worse.",
+    "Probably not — this one just isn't written for you.",
+    "No, and that's okay — not everything is meant to be.",
+    "Let's skip it — destiny has a different plan."
+]];
 
 const resultBox = document.querySelector("#resultBox");
 function winEvent (result) {
     resultBox.style.animation = "processEnd 0.5s ease-in-out 1 normal forwards";
     if (result) {
-        resultBox.innerHTML = positiveResponses[Math.round(Math.random() * 19)];
+        resultBox.innerHTML = responses[Number(modalVerb.value)][Math.round(Math.random() * 19)];
     } else {
         resultBox.style.backgroundColor = "#b22222";
-        resultBox.innerHTML = negativeResponses[Math.round(Math.random() * 19)];
+        resultBox.innerHTML = responses[Number(modalVerb.value) + 1][Math.round(Math.random() * 19)];
     }
     resultBox.innerHTML += "<button id='refresh'>Reload the Chaos</button>";
 
