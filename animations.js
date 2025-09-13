@@ -123,6 +123,8 @@ function moveHighlight (target) {
 if (getCookie("selectedSpeed") !== null) moveHighlight(document.querySelector(`#${getCookie("selectedSpeed")}`));
 else moveHighlight(document.querySelector(`#Fast`));
 
+if (getCookie("modalVerb") !== null) document.querySelector("#modalVerb").value = getCookie("modalVerb");
+
 document.querySelectorAll(".mode").forEach(mode => {
     mode.addEventListener("click", () => moveHighlight(mode));
 });
@@ -157,7 +159,8 @@ function startProcess (e) {
         disabled = true
 
         speed = document.querySelector(".selected").getAttribute("value");
-        setCookie("selectedSpeed", document.querySelector(".selected").getAttribute("id"))
+        setCookie("selectedSpeed", document.querySelector(".selected").getAttribute("id"));
+        setCookie("modalVerb", document.querySelector("#modalVerb").value);
 
         const progressBox1 = document.createElement("div");
         progressBox1.className = "progressBoxes";
