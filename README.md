@@ -8,7 +8,7 @@ Ask it a question starting with:
 
 Should I … ?
 
-Could I … ?
+Can I … ?
 
 Will I … ?
 
